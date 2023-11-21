@@ -1,0 +1,45 @@
+<form class="mt-5" (submit)="addnewUser()" >
+    <h1 class="text-center text-info">Registration Form</h1>
+     <div class="mb-3">
+    <label for="firstName" class="form-label">First Name</label>
+    <input type="text" name='firstName' id="firstName" class="form-control" [(ngModel)]="user.firstName">
+    </div>
+     <div class="mb-3">
+    <label for="lastName" class="form-label">Last Name</label>
+    <input type="text" id="lastName" name="lastName" class="form-control" [(ngModel)]="user.lastName">
+    </div>
+    <div class="mb-3">
+    <label for="email" class="form-label">Email address</label>
+    <input type="email" id="email" class="form-control" name="email" [(ngModel)]="user.email">
+    </div>
+  <div class="mb-3">
+    <label for="phone" class="form-label">Phone Number</label>
+    <input type="number" name="phone" class="form-control" id="phone" [(ngModel)]="user.phone">
+  </div>
+  <div class="mb-3">
+    <label for="address" class="form-label">Address</label>
+    <div class="input-group">
+        <div class="me-2">
+            <label for="street">Street</label>
+            <input type="text" class="form-control" name="street" id="street" [(ngModel)]="user.address.street">
+        </div>
+        <div class="me-2">
+            <label for="area">Area</label>
+            <input type="text" class="form-control" name="area" id="area" [(ngModel)]="user.address.area">
+        </div>
+        <div class="me-2">
+            <label for="city">City</label>
+            <input type="text" class="form-control" name="city" id="city" [(ngModel)]="user.address.city">
+        </div>
+        <div class="me-2">
+            <label for="pincode">Pincode</label>
+            <input type="text" class="form-control" id="pincode" name="pincode" [(ngModel)]="user.address.pincode">
+        </div>
+
+    </div>
+  </div>
+  <div class="d-grid gap-2 col-3 mx-auto">
+      <button *ngIf="!updating" type="submit" class="btn btn-primary btn-block">Submit</button>
+      <button type="button" *ngIf="updating" (click)="updateUser()" class="btn btn-primary btn-block">update</button>
+  </div>
+</form>
